@@ -13,36 +13,42 @@ public class FirstPanel extends JPanel
 	private FirstGUIController baseController;
 	private JButton colorButton;
 	private JButton randomButton;
-	
+
 	public FirstPanel(FirstGUIController baseController)
 	{
 		super();
-		this.baseController= baseController;
-		
+		this.baseController = baseController;
+
 		colorButton = new JButton("Color!");
 		randomButton = new JButton("Random");
-		
+
 		setupPanel();
 		setupLayout();
 		setupListeners();
-		
+
 	}
+
 	private void setupPanel()
 	{
 		this.setBackground(Color.BLUE);
 		this.add(colorButton);
 		this.add(randomButton);
 	}
-	
+
 	private void setupLayout()
 	{
-		
+
 	}
-	
+
 	private void setupListeners()
 	{
-		
+		colorButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+
+			}
+		});
 	}
-	
-	
+
 }
