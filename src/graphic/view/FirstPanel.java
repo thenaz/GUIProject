@@ -2,6 +2,7 @@ package graphic.view;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.SpringLayout;
 import graphic.controller.FirstGUIController;
 import java.awt.Color;
 
@@ -13,6 +14,7 @@ public class FirstPanel extends JPanel
 	private FirstGUIController baseController;
 	private JButton colorButton;
 	private JButton randomButton;
+	private SpringLayout baseLayout;
 
 	public FirstPanel(FirstGUIController baseController)
 	{
@@ -21,6 +23,7 @@ public class FirstPanel extends JPanel
 
 		colorButton = new JButton("Color!");
 		randomButton = new JButton("Random");
+		baseLayout = new SpringLayout();
 
 		setupPanel();
 		setupLayout();
@@ -30,6 +33,7 @@ public class FirstPanel extends JPanel
 
 	private void setupPanel()
 	{
+		this.setLayout(baseLayout);
 		this.setBackground(Color.BLUE);
 		this.add(colorButton);
 		this.add(randomButton);
@@ -37,6 +41,16 @@ public class FirstPanel extends JPanel
 
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.SOUTH, colorButton, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, colorButton, -10, SpringLayout.EAST, this);
+	}
+
+	private void changeBackground()
+	{
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
+		this.setBackground(new Color(red, green, blue));
 
 	}
 
@@ -49,6 +63,13 @@ public class FirstPanel extends JPanel
 				setBackground(Color.GRAY);
 			}
 		});
+		
+		randomButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				changeBackground();
+			}
+		});
 	}
-
 }
