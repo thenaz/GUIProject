@@ -46,7 +46,7 @@ public class FirstPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-
+				setBackground(Color.GRAY);
 			}
 		});
 	}
